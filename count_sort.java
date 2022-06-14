@@ -15,18 +15,18 @@ public class Main
         
         for(int i=0;i<n;i++)
         count[a[i]]++;
-        
-        for(int i=1;i<=max;i++)
-        count[i]+=count[i-1];
-        
-        for(int i=n-1;i>=0;i--)
+        int k=0,i=0;
+        while(k<=max)
         {
-            output[count[a[i]]-1]=a[i];
-            count[a[i]]--;
+            if(count[k]>0)
+            {
+                a[i]=k;
+                count[k]--;
+                i++;
+            }
+            else
+            k++;
         }
-        
-        for(int i=0;i<n;i++)
-        a[i]=output[i];
     }
     static void print(int a[]){
         for(int i:a)
